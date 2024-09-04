@@ -15,7 +15,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 179, 198, 214),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(26, 134, 106, 185),
+        backgroundColor: Colors.blueAccent,
         centerTitle: true,
         title: Text("ForgetPassword"),
       ),

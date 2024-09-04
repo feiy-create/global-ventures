@@ -1,8 +1,6 @@
-//import 'dart:nativewrappers/_internal/vm/lib/async_patch.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:global_luxury_escapes/Authentication/log_in.dart';
-
+import 'package:global_luxury_escapes/pages/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,20 +11,28 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Timer (const Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context, 
-        MaterialPageRoute(builder:(context) =>const log_in()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     });
   }
-   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Image.asset("assets/images/pic21.jpg")
-        );
+      body: Center(
+        child: Image.asset(
+          'assets/logos/logo2.jpg',
+          fit: BoxFit.cover,
+          height: double.infinity,
+          width: double.infinity,
+        ),
+      ),
+    );
   }
 }

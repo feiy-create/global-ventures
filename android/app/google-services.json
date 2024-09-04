@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374435470644",
+    "project_id": "global-luxury-escapes",
+    "storage_bucket": "global-luxury-escapes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374435470644:android:c3c5d757a7397e03249961",
+        "android_client_info": {
+          "package_name": "com.example.global_luxury_escapes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgoZxnWS212AVnbh7XxVWWYJ8RrpyaI0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
