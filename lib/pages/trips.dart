@@ -2,7 +2,20 @@ import 'package:flutter/material.dart';
 import 'wallet.dart';
 
 class Trips extends StatefulWidget {
-  const Trips({super.key});
+  final String from;
+  final String to;
+  final String date;
+  final bool isOneWay;
+  final bool isRoundTrip;
+
+  const Trips({
+    super.key,
+    required this.from,
+    required this.to,
+    required this.date,
+    required this.isOneWay,
+    required this.isRoundTrip,
+  });
 
   @override
   State<Trips> createState() => _TripsState();
@@ -63,21 +76,25 @@ class _TripsState extends State<Trips> {
       },
     ];
 
+    // Filter items based on the trip type and other parameters
+    final filteredItems = items.where((item) {
+      final destination = item['destination'] ?? '';
+      return destination.contains(widget.to); //  filtering based on from,to and date
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Trips"),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(26, 230, 229, 233),
       ),
-      body: ListView.builder(//listview creates scrollable list of widgets
-        itemCount: items.length,
+      body: ListView.builder(
+        itemCount: filteredItems.length,
         itemBuilder: (context, index) {
-          final item = items[index];
-          final image = item['image'] ??
-              'assets/images/pic26.jpg'; 
+          final item = filteredItems[index];
+          final image = item['image'] ?? 'assets/images/pic26.jpg'; 
           final destination = item['destination'] ?? 'Destination not found';
           final price = item['price'] ?? 'Price not found';
-
           return Card(
             margin: const EdgeInsets.all(8.0),
             child: Column(
@@ -110,23 +127,18 @@ class _TripsState extends State<Trips> {
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      //Navigating to wallet when one buys a ticket
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Wallet()),
+                                builder: (context) => Wallet(
+                                  destination: destination,
+                                  price: price,
+                                )),
                           );
                         },
-                        child: const Text('Buy Ticket',
-                        style: TextStyle(
-                          backgroundColor: Colors.white54,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),),
-                        
-                        
+                        child: const Text('Buy Ticket'),
                       ),
                     ],
                   ),

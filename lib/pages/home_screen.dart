@@ -59,33 +59,37 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
         ),
-        backgroundColor: Colors.white70,
+        backgroundColor: Colors.lightBlue,
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
               const SizedBox(
-              height: 25,
+              height: 35,
             ),
             ListTile(
               title: const Text("Trips"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.card_travel_rounded),
               onTap: () {
-                Navigator.of(context).pushReplacement(
+                Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const Trips(),
+                    builder: (context) => const Trips(from: 'required', 
+                    to: 'required',
+                     date: 'required',
+                      isOneWay: true, 
+                      isRoundTrip: false,),
                   ),
                 );
               },
             ),
               const SizedBox(
-              height: 15,
+              height: 35,
             ), 
                 ListTile(
               title: const Text("Search Flight"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.wallet_giftcard),
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -95,29 +99,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),    const SizedBox(
-              height: 25,
+              height: 35,
             ),
             ListTile(
               title: const Text("Wallet"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.wallet_giftcard),
               onTap: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => const Wallet(),
+                    builder: (context) => const Wallet(destination: 'required', price: 'required',),
                   ),
                 );
               },
             ),
                 const SizedBox(
-              height: 15,
+              height: 35,
             ),
                 const SizedBox(
-              height: 25,
+              height: 35,
             ),
             ListTile(
               title: const Text("Promos"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.local_offer),
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -128,11 +132,11 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
                 const SizedBox(
-              height: 25,
+              height: 35,
             ),
             ListTile(
               title: const Text("Contact Us"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.contact_phone),
               onTap: () {
                 Navigator.of(context).push(
@@ -143,11 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
                 const SizedBox(
-              height: 25,
+              height: 35,
             ),
             ListTile(
               title: const Text("Logout"),
-              tileColor: Colors.white70,
+              tileColor: Colors.lightBlue,
               leading: const Icon(Icons.logout),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
@@ -226,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: const Text(
                   "Get Started",
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 35,
                   ),
                 ),
               ),

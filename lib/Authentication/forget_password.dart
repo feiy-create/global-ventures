@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_const
-
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -10,53 +8,87 @@ class ForgetPassword extends StatefulWidget {
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
+  void _resetPassword() {
+    final email = _emailController.text;
+    final newPassword = _newPasswordController.text;
+    final confirmPassword = _confirmPasswordController.text;
+
+    if (email.isEmpty || newPassword.isEmpty || confirmPassword.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill out all fields')),
+      );
+      return;
+    }
+
+    if (newPassword != confirmPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Passwords do not match')),
+      );
+      return;
+    }
+
+    // Handle the password reset logic here, e.g., calling an API
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Password reset successfully')),
+    );
+
+    // Optionally clear the text fields after resetting
+    _emailController.clear();
+    _newPasswordController.clear();
+    _confirmPasswordController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 179, 198, 214),
+      backgroundColor: const Color.fromARGB(255, 179, 198, 214),
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
-        title: Text("ForgetPassword"),
+        title: const Text("Forget Password"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(50.0),
         child: Column(
           children: [
-            SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             TextField(
-              decoration: InputDecoration(
+              controller: _emailController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.email_rounded),
                 labelText: "Enter your Email",
               ),
             ),
+            const SizedBox(height: 20),
             TextField(
-              decoration: InputDecoration(
+              controller: _newPasswordController,
+              obscureText: true,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.password_rounded),
                 labelText: "Enter your New Password",
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             TextField(
-              decoration: InputDecoration(
+              controller: _confirmPasswordController,
+              obscureText: true,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.password_rounded),
                 labelText: "Confirm New Password",
               ),
             ),
-            SizedBox(
-              height: 20
-            ),
+            const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
-              child: const 
-              Text("Reset"),
+              onPressed: _resetPassword,
+              child: const Text("Reset"),
             ),
           ],
         ),

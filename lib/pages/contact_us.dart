@@ -11,6 +11,9 @@ class _ContactUsState extends State<ContactUs> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
+  
+  // List to store messages
+  final List<Map<String, String>> _messages = [];
 
   void _submitForm() {
     final name = _nameController.text;
@@ -23,6 +26,16 @@ class _ContactUsState extends State<ContactUs> {
       );
       return;
     }
+
+    // Adding the message to the list and showing the success message
+    setState(() {
+      _messages.add({
+        'name': name,
+        'email': email,
+        'message': message,
+      });
+    });
+
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Message sent successfully!')),
     );
@@ -39,7 +52,7 @@ class _ContactUsState extends State<ContactUs> {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: const Text("Contact Us"),
-          centerTitle: true,
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(26, 230, 229, 233),
       ),
       body: Padding(
@@ -103,6 +116,36 @@ class _ContactUsState extends State<ContactUs> {
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            // Displaying the list of messages
+            Expanded(
+              child: ListView.builder(
+                itemCount: _messages.length,
+                itemBuilder: (context, index) {
+                  final message = _messages[index];
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Name: ${message['name']}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text('Email: ${message['email']}'),
+                          const SizedBox(height: 8),
+                          Text('Message: ${message['message']}'),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
