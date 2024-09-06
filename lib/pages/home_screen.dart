@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text("Trips",
-               style: Textstyle.fontsize:20,),
+                style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue,
             
               leading: const Icon(Icons.card_travel_rounded),
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ), 
                 ListTile(
               title: const Text("Search Flight",
-               style: Textstyle.fontsize:20,),
+                style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue, 
               leading: const Icon(Icons.wallet_giftcard),
               onTap: () {
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text("Wallet",
-               style: Textstyle.fontsize:20,),
+               style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue,
             
               leading: const Icon(Icons.wallet_giftcard),
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text("Promos",
-               style: Textstyle.fontsize:20,),
+                style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue,
             
               leading: const Icon(Icons.local_offer),
@@ -144,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text("Contact Us",
-               style: Textstyle.fontsize:20,),
+                style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue,
             
               leading: const Icon(Icons.contact_phone),
@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text("Logout",
-              style: Textstyle.fontsize:20,),
+              style: TextStyle(fontSize: 20),),
               tileColor: Colors.lightBlue,
             
               leading: const Icon(Icons.logout),
