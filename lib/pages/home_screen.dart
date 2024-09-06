@@ -60,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
         backgroundColor: Colors.lightBlue,
+      
       ),
       drawer: Drawer(
         child: ListView(
@@ -69,8 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ),
             ListTile(
-              title: const Text("Trips"),
+              title: const Text("Trips",
+               style: Textstyle.fontsize:20,),
               tileColor: Colors.lightBlue,
+            
               leading: const Icon(Icons.card_travel_rounded),
               onTap: () {
                 Navigator.of(context).push(
@@ -88,8 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ), 
                 ListTile(
-              title: const Text("Search Flight"),
-              tileColor: Colors.lightBlue,
+              title: const Text("Search Flight",
+               style: Textstyle.fontsize:20,),
+              tileColor: Colors.lightBlue, 
               leading: const Icon(Icons.wallet_giftcard),
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -102,8 +106,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ),
             ListTile(
-              title: const Text("Wallet"),
+              title: const Text("Wallet",
+               style: Textstyle.fontsize:20,),
               tileColor: Colors.lightBlue,
+            
               leading: const Icon(Icons.wallet_giftcard),
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -120,8 +126,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ),
             ListTile(
-              title: const Text("Promos"),
+              title: const Text("Promos",
+               style: Textstyle.fontsize:20,),
               tileColor: Colors.lightBlue,
+            
               leading: const Icon(Icons.local_offer),
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -135,8 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ),
             ListTile(
-              title: const Text("Contact Us"),
+              title: const Text("Contact Us",
+               style: Textstyle.fontsize:20,),
               tileColor: Colors.lightBlue,
+            
               leading: const Icon(Icons.contact_phone),
               onTap: () {
                 Navigator.of(context).push(
@@ -150,8 +160,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
             ),
             ListTile(
-              title: const Text("Logout"),
+              title: const Text("Logout",
+              style: Textstyle.fontsize:20,),
               tileColor: Colors.lightBlue,
+            
               leading: const Icon(Icons.logout),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();

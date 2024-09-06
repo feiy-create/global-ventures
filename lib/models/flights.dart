@@ -30,7 +30,7 @@ class Flight {
     };
   }
 
-  // Create a Flight object from a Firestore document
+  // Creating a Flight object from a Firestore document
   factory Flight.fromMap(Map<String, dynamic> map) {
     return Flight(
       departureDate: map['departureDate'],
